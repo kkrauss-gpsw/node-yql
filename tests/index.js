@@ -177,7 +177,7 @@ describe('YQL', function () {
             it('should respond with an error', function (done) {
                 yql.exec(function (error, body) {
                     expect(error).to.be.a(Error);
-                    expect(error.message).to.be('Unexpected token h');
+                    expect(error.message).to.be('Unexpected token h in JSON at position 1');
                     done();
                 });
             });

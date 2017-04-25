@@ -198,10 +198,13 @@ YQL.prototype.exec = function (callback) {
         url: url
     };
 
-    var handler = this._handleResponse.bind(this, callback);
-
     // Execute the YQL request
-    this._httpRequest(config, handler);
+    if (callback) {
+      var handler = this._handleResponse.bind(this, callback);
+      return this._httpRequest(config, handler);
+    }
+
+    return request(config)
 };
 
 /**
